@@ -1,0 +1,306 @@
+/* Import de la police */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+
+/* Réinitialisation des marges et paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Évite les débordements */
+}
+
+/* Corps de la page */
+body {
+    font-family: "Montserrat", sans-serif;
+    overflow-x: hidden; /* Évite le défilement horizontal */
+}
+
+/* Header collant en haut */
+header {
+    position: sticky; /* Reste en haut */
+    top: 0;
+    width: 100%;
+    padding: 20px 0;
+    color: white;
+    transition: background 0.5s ease, border 0.5s ease; /* Transition fluide */
+    z-index: 100; /* Passe au-dessus des autres éléments */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    background: url('../img/cso_2_header.jpg') center/cover no-repeat;
+}
+
+/* Overlay assombrissant pour le header */
+header::before {
+    content: ''; /* Nécessaire pour que le pseudo-élément soit visible */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Overlay noir avec 40% de transparence */
+    z-index: -1; /* Placer l'overlay derrière le contenu du header */
+    transition: opacity 0.5s ease; /* Transition fluide pour l'assombrissement */
+}
+
+/* Header devient blanc au défilement */
+header.scrolled {
+    background: white; /* Fond blanc après le défilement */
+}
+
+/* Supprimer l'overlay au scroll */
+header.scrolled::before {
+    opacity: 0; /* Masquer l'assombrissement */
+}
+
+/* Logo dans le header */
+header a img {
+    width: 50px; /* Taille du logo */
+    margin-left: 30px; /* Décalage depuis le bord gauche */
+}
+
+/* Navigation */
+header ul {
+    display: flex;
+    list-style: none;
+    margin-right: 30px; /* Décalage depuis le bord droit */
+}
+
+header ul li {
+    margin-left: 20px; /* Espacement entre les liens */
+}
+
+/* Liens de navigation */
+header ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease;
+}
+
+/* Liens deviennent noirs au scroll */
+header.scrolled ul li a {
+    color: black; /* Texte noir après le scroll */
+}
+
+/* Effet hover sur les liens */
+header ul li:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Image de fond adaptative sans affecter le texte */
+.background {
+    position: relative; /* Nécessaire pour le pseudo-élément */
+    width: 100%;
+    height: 100vh; /* Pleine hauteur de l'écran */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrage vertical */
+    align-items: center; /* Centrage horizontal */
+    text-align: center; /* Texte centré */
+    overflow: hidden;
+}
+
+/* Pseudo-élément avant pour l'image de fond */
+.background::before {
+    content: ""; /* Nécessaire pour afficher le pseudo-élément */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/cso_2.jpg') center/cover no-repeat;
+    filter: brightness(0.6); /* Assombrir l'image */
+    z-index: -1; /* Placer l'image derrière le texte */
+}
+
+/* Texte sur l'image */
+.background h1,
+.background p {
+    color: white;
+    z-index: 1; /* Assure que le texte est au-dessus de l'image */
+    position: relative; /* Nécessaire pour gérer le z-index correctement */
+}
+
+/* Taille du titre */
+.background h1 {
+    font-size: 3rem;
+}
+
+/* Taille du paragraphe */
+.background p {
+    font-size: 1rem;
+    max-width: 800px;
+}
+
+/* Section Nos Disciplines */
+.disciplines-section {
+    padding: 100px 60px;
+    background: #e9e9e9;
+}
+
+.disciplines-section h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 100px;
+}
+
+.disciplines-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px; /* Espacement entre les blocs */
+}
+
+.discipline-bloc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    opacity: 0; /* Caché au début */
+    transform: translateY(50px); /* Décalage pour l'effet fade-in */
+    transition: opacity 2s ease, transform 3s ease;
+}
+
+.discipline-bloc.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Alternance des blocs (gauche/droite) */
+.discipline-bloc:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Texte */
+.discipline-texte {
+    max-width: 600px;
+}
+
+
+
+.discipline-texte h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.discipline-texte p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+}
+/* Images animées */
+.discipline-image {
+    flex-shrink: 0;
+    width: 50%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px; /* Coins arrondis */
+}
+
+.discipline-image img {
+    width: 100%;
+    display: block;
+    transition: transform 0.9s ease;
+}
+
+.discipline-image:hover img {
+    transform: scale(1.1); /* Zoom au survol */
+}
+
+/* Effet Parallaxe */
+.parallax {
+    transform: translateY(0);
+    transition: transform 0.2s ease-out;
+}
+
+/* Footer global */
+.main-footer {
+    background-color: #333;
+    color: white;
+    padding: 40px 20px 10px;
+
+}
+
+/* Container pour le contenu du footer */
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo et description */
+.footer-logo img {
+    width: 80px; /* Taille du logo */
+    margin-bottom: 10px;
+}
+
+.footer-logo p {
+    max-width: 300px; /* Limite la largeur */
+    line-height: 1.6;
+}
+
+/* Liens du footer */
+.footer-links, .footer-contact, .footer-socials {
+    flex: 1; /* Répartition équitable */
+    min-width: 200px; /* Largeur minimale */
+}
+
+/* Titres des sections */
+.footer-links h3, .footer-contact h3, .footer-socials h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+/* Liste des liens */
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 8px;
+}
+
+/* Liens dans le footer */
+.footer-links a, .footer-contact a, .footer-socials a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover, .footer-contact a:hover, .footer-socials a:hover {
+    color: #ffa500; /* Couleur au survol */
+}
+
+/* Réseaux sociaux */
+.footer-socials a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* Bas du footer */
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #555;
+    padding-top: 10px;
+    font-size: 0.9rem;
+}
+
+/* Responsive pour petits écrans */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-socials a {
+        display: block; /* Empile les liens */
+        margin-bottom: 5px;
+    }
+}
