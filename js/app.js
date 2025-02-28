@@ -40,7 +40,7 @@ function handleParallax() {
         img.style.transform = `translateY(${yPos}px)`;
 
         // Ajuster la position du texte (plus haut sur tous les écrans)
-        const offset = isMobile ? Math.min(40, yPos * 0.2) : Math.min(100, yPos * 1.5);
+        const offset = isMobile ? Math.min(40, yPos * 0.2) : Math.min(0.5, yPos * 0.8);
         text.style.marginTop = `-${offset}px`;
     });
 }
