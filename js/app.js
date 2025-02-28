@@ -13,10 +13,17 @@ function handleScroll() {
 // Apparition des blocs de discipline au scroll
 function handleDisciplineScroll() {
     const blocs = document.querySelectorAll('.discipline-bloc');
+    
     blocs.forEach((bloc) => {
         const blocTop = bloc.getBoundingClientRect().top;
-        if (blocTop < window.innerHeight -100) {
-            bloc.classList.add('show'); // Ajoute l'animation
+        const blocBottom = bloc.getBoundingClientRect().bottom;
+        
+        // Si le bloc est visible, on ajoute l'animation
+        if (blocTop < window.innerHeight - 100 && blocBottom > 0) {
+            bloc.classList.add('show');
+        } else {
+            // Réinitialise si le bloc sort de l'écran
+            bloc.classList.remove('show');
         }
     });
 }
