@@ -304,3 +304,20 @@ header ul li:hover {
         margin-bottom: 5px;
     }
 }
+
+
+/* Pour les écrans de largeur inférieure à 768px */
+@media (max-width: 768px) {
+    .discipline-bloc {
+        flex-direction: column; /* Affichage en colonne */
+        text-align: center; /* Centrer le texte */
+    }
+
+    .discipline-bloc:nth-child(even) {
+        flex-direction: column; /* Réinitialise l'inversion des blocs pairs */
+    }
+
+    .discipline-image {
+        width: 100%; /* Images en pleine largeur */
+    }
+}
