@@ -45,7 +45,7 @@ header::before {
 
 /* Header devient blanc au défilement */
 header.scrolled {
-    background: white; /* Fond blanc après le défilement */
+    background : #333; /* Fond blanc après le défilement */
 }
 
 /* Supprimer l'overlay au scroll */
@@ -80,7 +80,7 @@ header ul li a {
 
 /* Liens deviennent noirs au scroll */
 header.scrolled ul li a {
-    color: black; /* Texte noir après le scroll */
+    color: white; /* Texte noir après le scroll */
 }
 
 /* Effet hover sur les liens */
