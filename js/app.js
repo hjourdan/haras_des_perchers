@@ -52,7 +52,6 @@ function handleParallax() {
     });
 }
 
-
 // Fonction de gestion de l'animation de texte de présentation au scroll
 function handlePresentationScroll() {
     const presentation = document.querySelector('.presentation_defile');
@@ -70,6 +69,21 @@ function handlePresentationScroll() {
     }
 }
 
+// Sélection des éléments
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+// Fonction pour afficher/masquer les liens de navigation au clic
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active'); // Ajoute ou enlève la classe 'active'
+});
+
+// Gérer le clic en dehors du menu pour le fermer (si nécessaire)
+document.addEventListener('click', (event) => {
+    if (!menuToggle.contains(event.target) && !navLinks.contains(event.target)) {
+        navLinks.classList.remove('active'); // Masque le menu si on clique à l'extérieur
+    }
+});
 
 // Gestion globale du scroll
 function onScroll() {
@@ -83,5 +97,5 @@ function onScroll() {
 window.addEventListener('scroll', onScroll);
 document.addEventListener('DOMContentLoaded', onScroll); // Gérer le cas où la page est déjà scrollée
 
-// Appel de la fonction pour gérer les images de la section disciplines
-document.addEventListener('DOMContentLoaded', handleDisciplineImages); 
+// Appel de la fonction pour gérer les images de la section disciplines (à implémenter si nécessaire)
+document.addEventListener('DOMContentLoaded', handleDisciplineImages);
