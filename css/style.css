@@ -240,8 +240,14 @@ body {
 @media (max-width: 768px) {
     /* Afficher le bouton hamburger */
     .menu-toggle {
+        color : white;
+        font-size: 30px; 
         display: block;
         cursor: pointer;  /* Afficher l'icône du menu hamburger */
+    }
+
+    .header.active{
+        background-color: #333;
     }
 
     .nav-links.active {

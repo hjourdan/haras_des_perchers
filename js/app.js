@@ -72,10 +72,12 @@ function handlePresentationScroll() {
 // Sélection des éléments
 const menuToggle = document.getElementById('menu-toggle');
 const navLinks = document.querySelector('.nav-links');
+const head = document.querySelector('.header');
 
 // Fonction pour afficher/masquer les liens de navigation au clic
 menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active'); // Ajoute ou enlève la classe 'active'
+    head.classList.toggle('active');
 });
 
 // Gérer le clic en dehors du menu pour le fermer (si nécessaire)
