@@ -1,5 +1,5 @@
 // Sélection du header
-const header = document.getElementById('main-header');
+const header = document.querySelector('.header');
 
 // Fonction pour gérer la transparence du header
 function handleScroll() {
@@ -52,13 +52,36 @@ function handleParallax() {
     });
 }
 
+
+// Fonction de gestion de l'animation de texte de présentation au scroll
+function handlePresentationScroll() {
+    const presentation = document.querySelector('.presentation_defile');
+    if (!presentation) return; // Si l'élément n'existe pas, on arrête
+
+    const position = presentation.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    // Si l'élément est visible, on ajoute la classe "show"
+    if (position.top < windowHeight - 100 && position.bottom > 0) {
+        presentation.classList.add('show');
+    } else {
+        // Si l'élément n'est plus visible, on retire l'animation
+        presentation.classList.remove('show');
+    }
+}
+
+
 // Gestion globale du scroll
 function onScroll() {
     handleScroll();            // Gestion de la transparence du header
     handleDisciplineScroll();  // Animation des blocs de discipline
     handleParallax();          // Effet parallax sur les images
+    handlePresentationScroll(); // Animation du texte de présentation
 }
 
 // Appliquer les vérifications dès le chargement de la page
 window.addEventListener('scroll', onScroll);
 document.addEventListener('DOMContentLoaded', onScroll); // Gérer le cas où la page est déjà scrollée
+
+// Appel de la fonction pour gérer les images de la section disciplines
+document.addEventListener('DOMContentLoaded', handleDisciplineImages); 
