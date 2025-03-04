@@ -320,6 +320,24 @@ body {
         text-align: center;
     }
 
+    .footer-logo {
+        display: flex;               /* Utiliser flexbox pour aligner les éléments */
+        flex-direction: column;      /* Aligner les éléments verticalement */
+        align-items: center;         /* Centrer horizontalement */
+        text-align: center;          /* Centrer le texte à l'intérieur de chaque élément */
+        justify-content: center;     /* Centrer verticalement */
+    }
+    
+    .footer-logo img {
+        width: 80px;
+        margin-bottom: 10px;
+    }
+    
+    .footer-logo p {
+        max-width: 300px;
+        line-height: 1.6;
+        text-align: center;          /* Centrer le texte à l'intérieur du paragraphe */
+    }
     .footer-socials a {
         display: block;
         margin-bottom: 5px;
