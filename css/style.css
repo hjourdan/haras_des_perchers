@@ -97,6 +97,7 @@ body {
 /* ===== Animation de présentation ===== */
 .presentation_defile {
     padding: 20px;
+    padding-top: 40px;
     opacity: 0.5;
     transform: scale(0.8);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
