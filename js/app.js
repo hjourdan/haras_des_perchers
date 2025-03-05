@@ -87,6 +87,67 @@ document.addEventListener('click', (event) => {
     }
 });
 
+//Accueil -Services
+// Sélection des éléments
+// Sélection des éléments
+const carousel = document.querySelector(".carousel");
+const indicatorsContainer = document.querySelector(".carousel-indicators");
+const items = document.querySelectorAll(".services-item");
+
+let currentIndex = 0;
+let isScrolling = false;  // Verrou pour empêcher des changements trop rapides
+
+// Création des boutons (ronds) dynamiquement
+items.forEach((_, index) => {
+    const btn = document.createElement("button");
+    btn.addEventListener("click", () => goToSlide(index));
+    indicatorsContainer.appendChild(btn);
+});
+
+// Mise à jour initiale
+const indicators = document.querySelectorAll(".carousel-indicators button");
+updateCarousel();
+
+// Aller à une diapositive spécifique
+function goToSlide(index) {
+    currentIndex = index;
+    updateCarousel();
+}
+
+// Mise à jour de l'affichage
+function updateCarousel() {
+    // Déplacement du carrousel
+    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    // Mise à jour des ronds actifs
+    indicators.forEach((btn, index) => {
+        btn.classList.toggle("active", index === currentIndex);
+    });
+}
+
+// Ajouter la gestion du scroll horizontal
+carousel.addEventListener('wheel', (e) => {
+    // Empêcher le défilement vertical de la page
+
+    if (isScrolling) return; // Si on est déjà en train de faire défiler, on ignore l'événement
+    isScrolling = true;
+
+    // Ajouter un délai pour limiter la fréquence des changements
+    setTimeout(() => {
+        // Si le scroll est horizontal (deltaX > 0), on va à la prochaine image
+        if (Math.abs(e.deltaX) > 60) { // Seuil de sensibilité
+            if (e.deltaX > 0) {
+                // Scroll vers la droite (image suivante)
+                currentIndex = (currentIndex + 1) % items.length;
+            } else {
+                // Scroll vers la gauche (image précédente)
+                currentIndex = (currentIndex - 1 + items.length) % items.length;
+            }
+            updateCarousel();
+        }
+        isScrolling = false; // Libérer le verrou après le délai
+    }, 250);  // Délai de 150ms (ajuste cette valeur si nécessaire)
+});
+
 // Gestion globale du scroll
 function onScroll() {
     handleScroll();            // Gestion de la transparence du header
