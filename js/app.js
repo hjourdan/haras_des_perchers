@@ -69,6 +69,8 @@ function handlePresentationScroll() {
     }
 }
 
+// Services 
+
 // Sélection des éléments
 const menuToggle = document.getElementById('menu-toggle');
 const navLinks = document.querySelector('.nav-links');
