@@ -287,13 +287,9 @@ body {
     background: #333;
 }
 
-/* ===== Section Compétition===== */
-/* Section Compétition */
-
+/* ===== Section Compétition ===== */
 .competition-event {
-    margin-top: 0px;
     display: flex;
-    justify-content: space-between; /* Espace entre le titre et l'image */
     align-items: center; /* Aligne verticalement au centre */
     padding: 3rem;
     gap: 2rem; /* Espacement entre le titre et l'image */
@@ -301,30 +297,59 @@ body {
 
 .competition-event h3 {
     font-size: 2.5rem;
-    margin-bottom: 0; /* Supprime la marge en bas du titre */
-    text-align: left; /* Aligne le titre à gauche */
-    width: 50%; /* Le titre occupe 50% de la largeur de la section */
+    text-align: center;
 }
 
 .competition-images {
     position: relative;
-    width: 50%; /* L'image occupe aussi 50% de la largeur de la section */
-    height: auto;
+    display: flex;
+    width: 50%; /* L'autre moitié pour l'image */
     border-radius: 10px;
 }
 
+/* Assure-toi que ce conteneur maintient la place des images */
+.competition-images {
+    position: relative; /* Garde les images positionnées sans sortir du flux */
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px; /* Ajuste selon tes besoins */
+    height: 400px; /* Taille fixe ou ajustable */
+    overflow: hidden; /* Cache les débordements */
+}
+
+/* Ajuste les images pour rester dans le conteneur */
 .competition-image {
-    display: none; /* Cache toutes les images au départ */
+    opacity: 0; /* Cache les images par défaut */
+    visibility: hidden; /* Évite les interactions */
+    transition: opacity 1s ease-in-out; /* Ajoute la transition en fondu */
+    width: 100%; /* Garantit que l'image s'adapte */
+    height: auto; /* Préserve les proportions */
+    position: absolute; /* Superpose les images */
 }
 
-.competition-image img {
-    width: 100%; /* L'image prend 100% de la largeur de son conteneur (50% de la section) */
-    border-radius: 10px;
-}
-
-/* Affiche uniquement la première image */
+/* Image active visible */
 .competition-image.active {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+/*===== Prochaines portes ouvertes =====*/
+
+.portes-ouvertes{
+    width: 100%;
+    height: 50vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('../img/equipe_2.jpg') center/cover no-repeat;
+    color: white;
+    flex-direction : column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.portes-ouvertes .contenu{
+    display:block;
+    font-size: 2rem;
+    text-align: center;
 }
 
 /* ===== Footer ===== */
@@ -471,7 +496,14 @@ body {
 
     .discipline-image {
         width: 100%;
+        padding-bottom: 0rem;
     }
+
+    .competition-event {
+        flex-direction: column;
+
+    }
+
 
     .footer-container {
         flex-direction: column;

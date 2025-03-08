@@ -150,6 +150,28 @@ carousel.addEventListener('wheel', (e) => {
     }, 250);  // Délai de 150ms (ajuste cette valeur si nécessaire)
 });
 
+
+// Images de compétitions 
+
+// Sélectionne toutes les images de la section compétition
+const images = document.querySelectorAll(".competition-image");
+let index = 0;
+
+// Fonction pour changer d'image
+function showNextImage() {
+    // Cache l'image actuelle
+    images[index].classList.remove("active");
+
+    // Calcule l'index de la prochaine image (en boucle)
+    index = (index + 1) % images.length;
+
+    // Affiche la prochaine image
+    images[index].classList.add("active");
+}
+
+// Change d'image toutes les 3 secondes (3000 ms)
+setInterval(showNextImage, 3000);
+
 // Gestion globale du scroll
 function onScroll() {
     handleScroll();            // Gestion de la transparence du header
