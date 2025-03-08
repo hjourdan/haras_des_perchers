@@ -10,9 +10,9 @@ function handleScroll() {
     }
 }
 
-// Apparition des blocs de discipline au scroll
-function handleDisciplineScroll() {
-    const blocs = document.querySelectorAll('.discipline-bloc');
+// Apparition des blocs de services au scroll (page services)
+function handleServicesScroll() {
+    const blocs = document.querySelectorAll('.services-bloc');
     
     blocs.forEach((bloc) => {
         const blocTop = bloc.getBoundingClientRect().top;
@@ -34,8 +34,8 @@ function handleParallax() {
     const isMobile = window.innerWidth <= 768; // Détecte les petits écrans
 
     images.forEach((img) => {
-        const parentBloc = img.closest('.discipline-bloc');
-        const text = parentBloc?.querySelector('.discipline-texte');
+        const parentBloc = img.closest('.services-bloc');
+        const text = parentBloc?.querySelector('.services-texte');
 
         if (!parentBloc || !text) return;
 
@@ -175,7 +175,7 @@ setInterval(showNextImage, 3000);
 // Gestion globale du scroll
 function onScroll() {
     handleScroll();            // Gestion de la transparence du header
-    handleDisciplineScroll();  // Animation des blocs de discipline
+    handleServicesScroll();  // Animation des blocs de services
     handleParallax();          // Effet parallax sur les images
     handlePresentationScroll(); // Animation du texte de présentation
 }
@@ -184,5 +184,5 @@ function onScroll() {
 window.addEventListener('scroll', onScroll);
 document.addEventListener('DOMContentLoaded', onScroll); // Gérer le cas où la page est déjà scrollée
 
-// Appel de la fonction pour gérer les images de la section disciplines (à implémenter si nécessaire)
-document.addEventListener('DOMContentLoaded', handleDisciplineImages);
+// Appel de la fonction pour gérer les images de la section services (à implémenter si nécessaire)
+document.addEventListener('DOMContentLoaded', handleServicesImages);

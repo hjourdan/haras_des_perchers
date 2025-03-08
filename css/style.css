@@ -420,6 +420,107 @@ body {
     font-size: 0.9rem;
 }
 
+
+
+
+
+/*==============Page services============== */
+
+
+
+.services-titre {
+    width: 100%;
+    padding: 0px;
+    height: 55vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('../img/club_1.jpg') center/cover no-repeat;
+    color: white;
+}
+
+.services-titre h1 {
+    text-align: center;
+    font-size: 2.5rem;
+
+}
+
+.services-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px; /* Espacement entre les blocs */
+    padding: 20px 60px;
+}
+
+.services-bloc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 1; /* Caché au début */
+    transform: translateY(50px); /* Décalage pour l'effet fade-in */
+    transition: opacity 2s ease, transform 3s ease;
+}
+
+.services-bloc.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Alternance des blocs (gauche/droite) */
+.services-bloc:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Texte */
+.services-texte {
+    max-width: 600px;
+    text-align: center;
+    margin :50px;
+}
+
+.services-texte h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333333;
+    text-align: center;
+}
+
+.services-texte p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+}
+/* Images animées */
+.services-image {
+    flex-shrink: 0;
+    width: 50%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px; /* Coins arrondis */
+}
+
+.services-image img {
+    width: 100%;
+    display: block;
+    transition: transform 0.9s ease;
+}
+
+.services-image:hover img {
+    transform: scale(1.1); /* Zoom au survol */
+}
+
+/* Effet Parallaxe */
+.parallax {
+    transform: translateY(0);
+    transition: transform 0.2s ease-out;
+}
+
+
+
+
+
 /* ===== Responsive pour petits écrans ===== */
 @media (max-width: 768px) {
     /* Afficher le bouton hamburger */
@@ -532,4 +633,26 @@ body {
         display: block;
         margin-bottom: 5px;
     }
+
+    /* Section Nos Services */
+
+    /* Section Nos Services */
+    .services-container {
+        padding : 10px 10px;
+    }
+
+    .services-bloc {
+        flex-direction: column; /* Affichage en colonne */
+        text-align: center; /* Centrer le texte */
+    }
+
+    .services-bloc:nth-child(even) {
+        flex-direction: column; /* Réinitialise l'inversion des blocs pairs */
+    }
+
+    .services-image {
+        width: 100%; /* Images en pleine largeur */
+    }
+    
+
 }
