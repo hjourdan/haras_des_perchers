@@ -517,8 +517,98 @@ body {
     transition: transform 0.2s ease-out;
 }
 
+/*==============Page club============== */
 
 
+
+.club-titre {
+    width: 100%;
+    padding: 0px;
+    height: 55vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('../img/club_1.jpg') center/cover no-repeat;
+    color: white;
+}
+
+.club-presentation h3{
+    text-align: center;
+    padding : 50px;
+    font-size: 2rem;
+    color : #333333;
+}
+
+.club-presentation-texte{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top : 10px;
+    padding: 30px;
+
+}
+
+.club-presentation-texte p{
+    text-align: center;
+    font-size :large;
+    padding-left: 90px;
+    padding-right: 90px;
+
+}
+
+
+.club-presentation-images{
+    display: flex;
+    flex-direction: row;
+    position : relative;
+    align-items: center;
+}
+
+.club-presentation-images img{
+    width : 50%;
+    padding : 5%;
+    border-radius: 15%;
+}
+
+
+.club-presentation-image{
+    justify-content: space-around;
+    flex-direction: column;
+
+}
+
+.club-presentation-image img{
+    width : 100%;
+    padding : 5%;
+    border-radius: 15%;
+}
+
+.club-installation h3{
+    text-align: center;
+    padding : 50px;
+    font-size: 2rem;
+    color : #333333;
+}
+
+.club-installation p{
+    text-align: center;
+    padding : 50px;
+    font-size: large;
+
+}
+
+.club-installation-images{
+    display : flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.club-installation-images img{
+    width : 20%;
+}
 
 
 /* ===== Responsive pour petits écrans ===== */
@@ -652,6 +742,18 @@ body {
 
     .services-image {
         width: 100%; /* Images en pleine largeur */
+    }
+
+    .club-presentation-texte{
+        flex-direction: column;
+        padding-top : 5px;
+    
+    }
+    .club-presentation-texte p{
+        flex-direction: column;
+        padding-bottom: 50px;
+        padding : 20px;
+
     }
     
 
